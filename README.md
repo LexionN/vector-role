@@ -10,7 +10,6 @@ Role Variables
 |Vars|Description|
 |------|----------|
 | vector_version | Version of Vector to install |
-|------------------|------------------------------|
 | vector_config_dir | Install directory |
 
 

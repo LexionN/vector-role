@@ -1,0 +1,33 @@
+- name: Verify
+  hosts: all
+  gather_facts: True
+  tasks:
+  - name: Include vars
+    ansible.builtin.include_vars:
+      dir: '{{ lookup("env", "MOLECULE_PROJECT_DIRECTORY") }}/vars/'
+      extensions:
+        - 'yml'
+  - name: Config file exists
+    stat:
+      path: "{{ vector_config_dir }}/vector.yml"
+    register: config_stat
+  - name: Check if config exists
+    assert:
+      that:
+        - config_stat.stat.exists == True
+      success_msg: "Config file exists"
+      fail_msg: "Config file doesn't exist"  
+   
+  
+  - name: Get version of Vector
+    ansible.builtin.command:
+      cmd: vector --version
+    register: version_of_vector
+
+  - name: Vector start and enable vector service
+    assert:
+      that:
+        - '"{{ vector_version }}" in "{{ version_of_vector.stdout }}"'
+      success_msg: "Vector version is True"
+      fail_msg: "Vector version is False"
+

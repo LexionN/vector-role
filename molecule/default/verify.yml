@@ -1,6 +1,6 @@
 - name: Verify
   hosts: all
-  gather_facts: True
+  gather_facts: true
   tasks:
   - name: Include vars
     ansible.builtin.include_vars:
@@ -16,9 +16,8 @@
       that:
         - config_stat.stat.exists == True
       success_msg: "Config file exists"
-      fail_msg: "Config file doesn't exist"  
-   
-  
+      fail_msg: "Config file doesn't exist"
+
   - name: Get version of Vector
     ansible.builtin.command:
       cmd: vector --version
@@ -27,7 +26,6 @@
   - name: Vector start and enable vector service
     assert:
       that:
-        - '"{{ vector_version }}" in "{{ version_of_vector.stdout }}"'
+        - "vector_version in version_of_vector.stdout"
       success_msg: "Vector version is True"
       fail_msg: "Vector version is False"
-

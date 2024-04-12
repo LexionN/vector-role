@@ -1,0 +1,18 @@
+action: default, msg: getenv
+cwd: /opt/vector-role
+cmd: /opt/vector-role/.tox/ansible/bin/python -m pip install -rtox-requirements.txt molecule ansible-lint yamllint flake8 pytest testinfra ansible molecule-docker molecule-podman molecule-podman molecule-docker
+Collecting molecule
+  Using cached molecule-3.6.1-py3-none-any.whl (241 kB)
+Collecting ansible-lint
+  Downloading ansible_lint-5.4.0-py3-none-any.whl (119 kB)
+Collecting yamllint
+  Downloading yamllint-1.28.0-py2.py3-none-any.whl (62 kB)
+Collecting flake8
+  Downloading flake8-5.0.4-py2.py3-none-any.whl (61 kB)
+Collecting pytest
+  Downloading pytest-7.0.1-py3-none-any.whl (296 kB)
+Collecting testinfra
+  Downloading testinfra-6.0.0-py3-none-any.whl (2.1 kB)
+Collecting ansible
+  Downloading ansible-4.10.0.tar.gz (36.8 MB)
+ERROR: Operation cancelled by user

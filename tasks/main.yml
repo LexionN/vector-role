@@ -4,6 +4,7 @@
   block:
     - name: Get vector distrib
       ansible.builtin.get_url:
+        validate_certs: false
         url: "https://packages.timber.io/vector/{{ vector_version }}/vector-{{ vector_version }}-1.x86_64.rpm"
         dest: "./vector-{{ vector_version }}-1.x86_64.rpm"
         mode: "0644"
@@ -11,7 +12,7 @@
       become: true
       become_method: su
       ansible.builtin.yum:
-        disable_gpg_check: True
+        disable_gpg_check: true
         name: vector-{{ vector_version }}-1.x86_64.rpm
       notify: Restart vector service
     - name: Configure Vector | ensure what directory exists

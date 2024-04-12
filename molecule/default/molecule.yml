@@ -8,8 +8,8 @@ platforms:
   - name: oraclelinux_8
     image: docker.io/oraclelinux:8
     pre_build_image: true
-  - name: ubuntu_latest
-    image: docker.io/pycontribs/ubuntu:latest
+  - name: centos7
+    image: docker.io/centos:centos7
     pre_build_image: true
 provisioner:
   name: ansible

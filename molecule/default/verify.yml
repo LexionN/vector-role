@@ -14,7 +14,7 @@
   - name: Check if config exists
     assert:
       that:
-        - config_stat.stat.exists == True
+        - config_stat.stat.exists
       success_msg: "Config file exists"
       fail_msg: "Config file doesn't exist"
 
